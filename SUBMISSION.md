@@ -1,8 +1,8 @@
 # HW2 submission
 
-**Name:** _(fill in before submitting)_
-**Student ID:** _(fill in before submitting)_
-**Group:** _(fill in before submitting)_
+**Name:** Arseny
+**Student ID:** 23071798
+**Group:** mon 9:30
 **Repository:** https://github.com/ars512/ai-2026-hw2
 
 ## AI tool disclosure
