@@ -81,13 +81,19 @@ EXTRACTION_SYSTEM = (
     "ambiguities describing the contradiction and both values.\n"
     "5. For every field you do fill in (not null), evidence must contain a "
     "short verbatim quote from the story that supports it, keyed by the "
-    "field name.\n"
+    "field name. Every evidence value is a plain quoted string, even for a "
+    "numeric field - write \"2024\" and \"3.2\", never the bare numbers 2024 "
+    "or 3.2.\n"
     "6. relevant_experience_months counts months of directly relevant work "
     "or internships; overlapping periods count once, not twice; a period "
     "with no dates given is not countable towards the number, but note it "
     "in ambiguities.\n\n"
     "Reply with a single JSON object matching exactly this schema, nothing "
-    "else:\n" + json.dumps(EXTRACTION_SCHEMA, ensure_ascii=False)
+    "else. The schema below describes the shape of your answer - do not "
+    "copy schema keywords like \"type\" or \"properties\" into your answer "
+    "itself; your reply has only the field names listed in `properties`, "
+    "filled with their actual values:\n"
+    + json.dumps(EXTRACTION_SCHEMA, ensure_ascii=False)
 )
 
 RUBRIC = load_json("candidate_rubric.json")

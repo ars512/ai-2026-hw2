@@ -6,11 +6,22 @@ call. Nothing here decides what to send - that is each sublab's job.
 """
 import json
 import os
+import sys
 import time
 from pathlib import Path
 
 from dotenv import load_dotenv
 from openai import OpenAI, RateLimitError
+
+if sys.platform == "win32":
+    # Windows consoles default to a legacy codepage (e.g. cp1251) that
+    # cannot print Kazakh-specific characters; UTF-8 output is otherwise
+    # never lossy, so reconfigure it unconditionally.
+    for _stream in (sys.stdout, sys.stderr):
+        try:
+            _stream.reconfigure(encoding="utf-8", errors="replace")
+        except Exception:
+            pass
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 DATA_DIR = REPO_ROOT / "data"
